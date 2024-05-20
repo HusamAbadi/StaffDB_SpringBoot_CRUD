@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" th:href="@{/styles.css}">
+    <!-- <link rel="stylesheet" href="styles.css"> -->
+
+    <title>Add New Staff</title>
+</head>
+<body>
+    <p> 
+        <a th:href="@{/}">Home</a><br>  
+        <a th:href="@{/getAllStaff}">getAllStaff</a>
+    </p>
+
+    <h2>Staff Details</h2>
+    <div class="center-screen">
+
+        <form method="post" th:object="${newStaff}" th:action="@{/dataSubmitForm}">
+            
+            <label for="staffName">Staff Name</label><br>
+            <p style="color: red;" th:errors="*{staffName}"></p>
+            <input type="text" placeholder="Staff Name" th:field="*{staffName}">
+            <br><br><br>
+            
+            <label for="staffTitle">Staff Title</label><br>
+            <p style="color: red;" th:errors="*{staffTitle}"></p>
+            <input type="text" placeholder="Staff Title" th:field="*{staffTitle}">
+            <br><br><br>
+            
+            <label for="staffSalary">Staff Salary</label><br>
+            <input type="text" placeholder="Staff Salary" th:field="*{staffSalary}">
+            <br><br><br>
+            
+            <input type="hidden" th:field="*{ID}">
+            <br><br><br>
+
+            <input type="submit" value="Submit">
+        </form>
+    </div>
+    
+</body>
+</html>

@@ -1,0 +1,16 @@
+table,
+th,
+td {
+  border: 1px solid black;
+}
+
+h1 {
+  color: blue;
+}
+
+.center-screen {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}

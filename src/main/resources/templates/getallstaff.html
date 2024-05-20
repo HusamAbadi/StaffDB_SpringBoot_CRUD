@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" th:href="@{/styles.css}">
+    <!-- <link rel="stylesheet" href="styles.css"> -->
+
+    <title>Staff Details</title>
+</head>
+<body>
+    <p> 
+        <a th:href="@{/}">Home</a><br>
+        <a th:href="@{/getAllStaff}">getAllStaff</a>
+    </p>
+    <div class="center-screen">
+
+        <table style="width: 100%;">
+            <tr>
+                <th>Staff Name</th>
+                <th>Staff Title</th>
+                <th>Staff Salary</th>
+            </tr>
+            <tr th:each="staff : ${allStaff}">
+                <td th:text="${staff.staffName}"></td>
+                <td th:text="${staff.staffTitle}"></td>
+                <td th:text="${staff.staffSalary}"></td>
+                <td><a role="button" th:href="@{/(id = ${staff.ID})}">Update</a></td>
+                <!-- When The link is clicked it will provoke the @GetMapping("/") method to redirect to the addnewstaff.html page but with the details of the staff that was clicked -->
+            </tr>
+        </table>
+    </div>
+    
+</body>
+</html>
