@@ -18,7 +18,7 @@
     <h2>Staff Details</h2>
     <div class="center-screen">
 
-        <form method="post" th:object="${newStaff}" th:action="@{/dataSubmitForm}">
+        <form method="post" th:object="${staff}" th:action="@{/dataSubmitForm}">
             
             <label for="staffName">Staff Name</label><br>
             <p style="color: red;" th:errors="*{staffName}"></p>

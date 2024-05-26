@@ -4,7 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+    <!-- Using Thymeleaf: -->
     <link rel="stylesheet" th:href="@{/styles.css}">
+    <!-- OR The Normal Way: -->
     <!-- <link rel="stylesheet" href="styles.css"> -->
 
     <title>Staff Details</title>
@@ -27,7 +29,7 @@
                 <td th:text="${staff.staffTitle}"></td>
                 <td th:text="${staff.staffSalary}"></td>
                 <td><a role="button" th:href="@{/(id = ${staff.ID})}">Update</a></td>
-                <!-- When The link is clicked it will provoke the @GetMapping("/") method to redirect to the addnewstaff.html page but with the details of the staff that was clicked -->
+                <!-- When The link is clicked it will provoke the @GetMapping("/") method to redirect to the managestaff.html page but with the details of the staff that was clicked -->
             </tr>
         </table>
     </div>

@@ -1,5 +1,6 @@
 package com.cwr.crud.controller;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -15,23 +16,24 @@ import org.springframework.validation.BindingResult;
 
 // Staff Controller (Presentation Layer) => StaffService (Business Layer) => StaffRepository (Data Access Layer)
 
-@Controller
+@Controller // (MV`C`)
 public class StaffController {
 
-    StaffService staffService = new StaffService();
+    @Autowired
+    StaffService staffService;
 
-    // Staff Model
+    // Staff Model (`M`VC)
     @GetMapping("/")
-    public String addNewStaff(Model model, @RequestParam(required = false) String id) {
+    public String manageStaff(Model model, @RequestParam(required = false) String id) {
 
-        model.addAttribute("newStaff", staffService.getStaffByID(id));
+        model.addAttribute("staff", staffService.getStaffByID(id));
 
-        // Staff View
+        // Staff View (M`V`C)
         return "addnewstaff";
     }
 
     @PostMapping("/dataSubmitForm")
-    public String dataSubmitForm(@Valid @ModelAttribute("newStaff") Staff staff, BindingResult result) {
+    public String dataSubmitForm(@Valid @ModelAttribute("staff") Staff staff, BindingResult result) {
         if (result.hasErrors())
             return "addnewstaff";
 

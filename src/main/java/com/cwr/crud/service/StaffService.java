@@ -4,12 +4,18 @@ import com.cwr.crud.Constants;
 import com.cwr.crud.Staff;
 import com.cwr.crud.repository.StaffRepository;
 
+import org.springframework.stereotype.Service;
+
 import java.util.List;
 
-// Staff Service (Business Logic Layer)
+import org.springframework.beans.factory.annotation.Autowired;
 
+// Staff Service (Business Logic Layer)
+@Service
 public class StaffService {
-    StaffRepository staffRepository = new StaffRepository();
+
+    @Autowired
+    StaffRepository staffRepository;
 
     public Staff geStaffByIndex(int index) {
         return staffRepository.geStaffByIndex(index);

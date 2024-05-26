@@ -5,8 +5,10 @@ import com.cwr.crud.Staff;
 import java.util.ArrayList;
 import java.util.List;
 
-// Staff Repository (Data Access Layer) => StaffRepository (Data Access Layer) => StaffService (Business Logic Layer)
+import org.springframework.stereotype.Repository;
 
+// Staff Repository (Data Access Layer) => StaffService (Business Layer) => Staff Controller (Presentation Layer)
+@Repository
 public class StaffRepository {
     private List<Staff> allStaff = new ArrayList<>();
 
